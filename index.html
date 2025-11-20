@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trentorial Piano - Sheet Music & MIDI</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+    background: #111;
+    color: #00ff88;
+    padding: 20px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 1px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+header .logo {
+    height: 75px;   /* adjust size if needed */
+    width: auto;
+}
+
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #eaeaea;
+            padding: 12px;
+            gap: 18px;
+        }
+
+        nav a {
+            text-decoration: none;
+            padding: 10px 18px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            color: #333;
+            font-weight: bold;
+        }
+
+        #search {
+            width: 90%;
+            max-width: 400px;
+            display: block;
+            margin: 25px auto;
+            padding: 10px;
+            font-size: 18px;
+            border: 2px solid #00ff88;
+            border-radius: 8px;
+        }
+
+        table {
+            width: 95%;
+            margin: 0 auto 40px auto;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th {
+            background: #00aa66;
+            color: white;
+            padding: 15px;
+            font-size: 18px;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:nth-child(even) {
+            background: #eafff3;
+        }
+
+        a.file-link {
+            color: #0099ff;
+            font-weight: bold;
+        }
+    </style>
+
+    <script>
+        function searchSongs() {
+            let input = document.getElementById("search").value.toLowerCase();
+            let rows = document.querySelectorAll("#songTable tr");
+
+            rows.forEach(row => {
+                let text = row.innerText.toLowerCase();
+                row.style.display = text.includes(input) ? "" : "none";
+            });
+        }
+    </script>
+</head>
+
+<body>
+
+<header>
+    <img src="youtubelogo.jpg" alt="YouTube Logo" class="logo">
+    Trentorial Piano – Sheet Music & MIDIs
+</header>
+
+
+<nav>
+    <a href="#">Song List</a>
+</nav>
+
+<input id="search" onkeyup="searchSongs()" placeholder="Search for a song..." />
+
+<table>
+    <thead>
+        <tr>
+            <th>Song Title</th>
+            <th>Sheet</th>
+            <th>MIDI</th>
+        </tr>
+    </thead>
+
+    <tbody id="songTable">
+
+        <!-- ⭐ SAMPLE SONGS (delete or replace with your own) ⭐ -->
+        <tr>
+            <td>The Red Clay Strays - Sunshine (Western AF)</td>
+            <td><a class="file-link" href="sheet/The Red Clay Strays - Sunshine (Western AF).pdf">Sheet</a></td>
+            <td><a class="file-link" href="midi/The Red Clay Strays - Sunshine (Western AF).mid">MIDI</a></td>
+        </tr>
+
+        <tr>
+            <td>Jason Aldean - You Make It Easy</td>
+            <td><a class="file-link" href="sheet/Jason Aldean - You Make It Easy.pdf">Sheet</a></td>
+            <td><a class="file-link" href="midi/Jason Aldean - You Make It Easy.mid">MIDI</a></td>
+        </tr>
+
+        <tr>
+            <td>Alex Warren - You Can't Stop This</td>
+            <td><a class="file-link" href="">Sheet</a></td>
+            <td><a class="file-link" href="midi/Alex Warren - You Can't Stop This.mid">MIDI</a></td>
+        </tr>
+
+        <tr>
+            <td>Bad Wolves - Zombie</td>
+            <td><a class="file-link" href="">Sheet</a></td>
+            <td><a class="file-link" href="midi/Bad Wolves - Zombie.mid">MIDI</a></td>
+        </tr>
+
+        <tr>
+            <td>Billy Currington - Do I Make You Wanna</td>
+            <td><a class="file-link" href="">Sheet</a></td>
+            <td><a class="file-link" href="midi/Billy Currington - Do I Make You Wanna.mid">MIDI</a></td>
+        </tr>
+
+        <tr>
+            <td>Blind Melon - No Rain</td>
+            <td><a class="file-link" href="">Sheet</a></td>
+            <td><a class="file-link" href="midi/Blind Melon - No Rain.mid">MIDI</a></td>
+        </tr>
+
+        <tr>
+            <td>Carrie Underwood - Before He Cheats</td>
+            <td><a class="file-link" href="">Sheet</a></td>
+            <td><a class="file-link" href="midi/Carrie Underwood - Before He Cheats.mid">MIDI</a></td>
+        </tr>
+
+	<tr>
+            <td>Carrie Underwood - Two Black Cadillacs</td>
+            <td><a class="file-link" href="">Sheet</a></td>
+            <td><a class="file-link" href="midi/Carrie Underwood - Two Black Cadillacs.mid">MIDI</a></td>
+        </tr>
+
+	<tr>
+            <td>Chase Rice - Eyes On You</td>
+            <td><a class="file-link" href="">Sheet</a></td>
+            <td><a class="file-link" href="midi/Chase Rice - Eyes On You.mid">MIDI</a></td>
+        </tr>
+
+	<tr>
+            <td>Chayce Beckham - 23</td>
+            <td><a class="file-link" href="">Sheet</a></td>
+            <td><a class="file-link" href="midi/Chayce Beckham - 23.mid">MIDI</a></td>
+        </tr>
+
+	<tr>
+            <td>Chris Coral (feat. AdamAlexander) - Lies</td>
+            <td><a class="file-link" href="">Sheet</a></td>
+            <td><a class="file-link" href="midi/Chris Coral feat. AdamAlexander - Lies.mid">MIDI</a></td>
+        </tr>
+
+	<tr>
+            <td>Chris Lane - I Don't Know About You</td>
+            <td><a class="file-link" href="">Sheet</a></td>
+            <td><a class="file-link" href="midi/Chris Lane - I Don't Know About You.mid">MIDI</a></td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- ⭐ AUTO ALPHABETICAL SORTING ⭐ -->
+<script>
+    window.onload = function () {
+        let table = document.getElementById("songTable");
+        let rows = Array.from(table.rows);
+
+        rows.sort((a, b) => {
+            let nameA = a.cells[0].innerText.toLowerCase();
+            let nameB = b.cells[0].innerText.toLowerCase();
+            return nameA.localeCompare(nameB);
+        });
+
+        rows.forEach(row => table.appendChild(row));
+    };
+</script>
+
+</body>
+</html>
