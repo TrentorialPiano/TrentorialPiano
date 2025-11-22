@@ -129,25 +129,39 @@ header .logo {
         }
 
 function filterAlbum(album) {
-        let rows = document.querySelectorAll("#songTable tr");
+    let rows = document.querySelectorAll("#songTable tr");
 
-        rows.forEach(row => {
-            let rowAlbum = row.getAttribute("data-album");
+    rows.forEach(row => {
+        let rowAlbum = row.getAttribute("data-album");
 
-            // show all rows
-            if (album === "all") {
-                row.style.display = "";
-                return;
-            }
-
-            // show only rows that match
+        // Show all rows when “All Songs” is clicked
+        if (album === "all") {
+            row.style.display = "";
+        } else {
+            // Only show rows that match the selected album
             if (rowAlbum === album) {
                 row.style.display = "";
             } else {
                 row.style.display = "none";
             }
-        });
-    }
+        }
+    });
+
+    // AFTER hiding/showing, reset the row striping
+    updateStriping();
+}
+
+function updateStriping() {
+    const visibleRows = document.querySelectorAll("#songTable tr:not([style*='display: none'])");
+
+    visibleRows.forEach((row, index) => {
+        if (index % 2 === 0) {
+            row.style.backgroundColor = "white";
+        } else {
+            row.style.backgroundColor = "#eafff3"; // or whatever green you want
+        }
+    });
+}
 
     </script>
 </head>
