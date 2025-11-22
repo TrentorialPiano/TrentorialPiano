@@ -111,6 +111,7 @@ header .logo {
 .btn-aa { background: yellow; color: black; }        /* Yellow */
 .btn-pz { background: purple; color: white; }        /* Purple */
 .btn-sd8 { background: green; color: white; }        /* Green */
+.btn-unreleased { background: pink; color: black; }  /* Pink */
 
 /* Optional: All Songs */
 .btn-all { background: #ccc; color: black; }
@@ -132,22 +133,21 @@ function filterAlbum(album) {
     let rows = document.querySelectorAll("#songTable tr");
 
     rows.forEach(row => {
-        let rowAlbum = row.getAttribute("data-album");
+        let albums = row.getAttribute("data-album");
+        if (!albums) {
+            row.style.display = "none";
+            return;
+        }
 
-        // Show all rows when “All Songs” is clicked
-        if (album === "all") {
+        let albumList = albums.toLowerCase().split(",").map(a => a.trim());
+
+        if (album === "all" || albumList.includes(album.toLowerCase())) {
             row.style.display = "";
         } else {
-            // Only show rows that match the selected album
-            if (rowAlbum === album) {
-                row.style.display = "";
-            } else {
-                row.style.display = "none";
-            }
+            row.style.display = "none";
         }
     });
 
-    // AFTER hiding/showing, reset the row striping
     updateStriping();
 }
 
@@ -191,6 +191,8 @@ function updateStriping() {
     <button class="btn-aa" onclick="filterAlbum('ATTENTION ATTENTION')">ATTENTION ATTENTION</button>
     <button class="btn-pz" onclick="filterAlbum('Planet Zero')">Planet Zero</button>
     <button class="btn-sd8" onclick="filterAlbum('SD8')">SD8</button>
+    <button class="btn-unreleased" onclick="filterAlbum('Unreleased/Bonus')">Unreleased/Bonus</button>
+
 </div>
 
 
@@ -211,7 +213,7 @@ function updateStriping() {
             <td><a class="file-link" href="">MIDI</a></td>
         </tr>
 
-        <tr data-album="ATTENTION ATTENTION">
+        <tr data-album="ATTENTION ATTENTION, Unreleased/Bonus">
             <td>ANWTD (A New Way To Die)</td>
             <td><a class="file-link" href="">Sheet</a></td>
             <td><a class="file-link" href="">MIDI</a></td>
@@ -253,7 +255,7 @@ function updateStriping() {
             <td><a class="file-link" href="">MIDI</a></td>
         </tr>
 
-<tr data-album="The Sound of Madness">
+<tr data-album="The Sound of Madness, Unreleased/Bonus">
             <td>Be The Same</td>
             <td><a class="file-link" href="">Sheet</a></td>
             <td><a class="file-link" href="">MIDI</a></td>
@@ -283,7 +285,7 @@ function updateStriping() {
             <td><a class="file-link" href="">MIDI</a></td>
         </tr>
 
-<tr data-album="Us & Them">
+<tr data-album="Us & Them, Unreleased/Bonus">
             <td>Break</td>
             <td><a class="file-link" href="">Sheet</a></td>
             <td><a class="file-link" href="">MIDI</a></td>
@@ -295,7 +297,7 @@ function updateStriping() {
             <td><a class="file-link" href="">MIDI</a></td>
         </tr>
 
-<tr data-album="Threat to Survival">
+<tr data-album="Threat to Survival, Unreleased/Bonus">
             <td>Breathe</td>
             <td><a class="file-link" href="">Sheet</a></td>
             <td><a class="file-link" href="">MIDI</a></td>
@@ -397,7 +399,7 @@ function updateStriping() {
             <td><a class="file-link" href="">MIDI</a></td>
         </tr>
 
-<tr>
+<tr data-album="Unreleased/Bonus">
             <td>Dirthouse</td>
             <td><a class="file-link" href="">Sheet</a></td>
             <td><a class="file-link" href="">MIDI</a></td>
@@ -433,7 +435,7 @@ function updateStriping() {
             <td><a class="file-link" href="">MIDI</a></td>
         </tr>
 
-<tr data-album="ATTENTION ATTENTION">
+<tr data-album="ATTENTION ATTENTION, Unreleased/Bonus">
             <td>HEADCASE</td>
             <td><a class="file-link" href="">Sheet</a></td>
             <td><a class="file-link" href="">MIDI</a></td>
@@ -535,7 +537,7 @@ function updateStriping() {
             <td><a class="file-link" href="">MIDI</a></td>
         </tr>
 
-<tr data-album="Threat to Survival">
+<tr data-album="Threat to Survival, Unreleased/Bonus">
             <td>Never Gonna Let Go</td>
             <td><a class="file-link" href="">Sheet</a></td>
             <td><a class="file-link" href="">MIDI</a></td>
@@ -571,7 +573,7 @@ function updateStriping() {
             <td><a class="file-link" href="">MIDI</a></td>
         </tr>
 
-<tr data-album="Threat to Survival">
+<tr data-album="Threat to Survival, Unreleased/Bonus">
             <td>Reject</td>
             <td><a class="file-link" href="">Sheet</a></td>
             <td><a class="file-link" href="">MIDI</a></td>
@@ -595,7 +597,7 @@ function updateStriping() {
             <td><a class="file-link" href="">MIDI</a></td>
         </tr>
 
-<tr data-album="Leave a Whisper">
+<tr data-album="Leave a Whisper, Unreleased/Bonus">
             <td>So You Know</td>
             <td><a class="file-link" href="">Sheet</a></td>
             <td><a class="file-link" href="">MIDI</a></td>
