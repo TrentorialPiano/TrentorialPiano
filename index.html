@@ -115,35 +115,34 @@ header .logo {
 
     </style>
 
-    <script>
-        function searchSongs() {
-            let input = document.getElementById("search").value.toLowerCase();
-            let rows = document.querySelectorAll("#songTable tr");
+<script>
+function searchSongs() {
+    let input = document.getElementById("search").value.toLowerCase();
+    let rows = document.querySelectorAll("#songTable tr");
 
-            rows.forEach(row => {
-                let text = row.innerText.toLowerCase();
-                row.style.display = text.includes(input) ? "" : "none";
-            });
-        }
+    rows.forEach(row => {
+        let text = row.innerText.toLowerCase();
+        row.style.display = text.includes(input) ? "" : "none";
+    });
+
+    updateStriping();
+}
 
 function filterPlaylist(playlist) {
     let rows = document.querySelectorAll("#songTable tr");
     let target = playlist.toLowerCase();
 
     rows.forEach(row => {
-        let playlists = row.getAttribute("data-playlist");
 
-        // Hide rows with no playlist tag
+        let playlists = row.getAttribute("data-playlist");
         if (!playlists) {
             row.style.display = "none";
             return;
         }
 
-        // Split the ROW’S playlist list properly
-        let playlistList = playlists.toLowerCase().split(",").map(a => a.trim());
+        let list = playlists.toLowerCase().split(",").map(a => a.trim());
 
-        // Show all or only matching rows
-        if (target === "all" || playlistList.includes(target)) {
+        if (target === "all" || list.includes(target)) {
             row.style.display = "";
         } else {
             row.style.display = "none";
@@ -153,23 +152,16 @@ function filterPlaylist(playlist) {
     updateStriping();
 }
 
-
-updateStriping();
-}
-
 function updateStriping() {
     const visibleRows = document.querySelectorAll("#songTable tr:not([style*='display: none'])");
 
     visibleRows.forEach((row, index) => {
-        if (index % 2 === 0) {
-            row.style.backgroundColor = "white";
-        } else {
-            row.style.backgroundColor = "#eafff3"; // or whatever green you want
-        }
+        row.style.backgroundColor = index % 2 === 0 ? "white" : "#eafff3";
     });
 }
+</script>
 
-    </script>
+
 </head>
 
 <body>
@@ -189,7 +181,7 @@ function updateStriping() {
 
 <div class="playlist-filters">
     <button class="btn-all" onclick="filterPlaylist('all')">All Songs</button>
-    <button class="btn-cls" onclick="filterPlaylist('Classic\'s')">Classic's</button>
+    <button class="btn-cls" onclick="filterPlaylist('Classics')">Classics</button>
     <button class="btn-cty" onclick="filterPlaylist('Country')">Country</button>
     <button class="btn-gam" onclick="filterPlaylist('Gaming')">Gaming</button>
     <button class="btn-pop" onclick="filterPlaylist('Pop')">Pop</button>
@@ -240,7 +232,7 @@ function updateStriping() {
             <td><a class="file-link" href="midi/Billy Currington - Do I Make You Wanna.mid">MIDI</a></td>
         </tr>
 
-        <tr data-playlist="Classic's, Rock">
+        <tr data-playlist="Classics, Rock">
             <td>Blind Melon - No Rain</td>
             <td><a class="file-link" href="">Sheet</a></td>
             <td><a class="file-link" href="midi/Blind Melon - No Rain.mid">MIDI</a></td>
@@ -282,7 +274,7 @@ function updateStriping() {
             <td><a class="file-link" href="midi/Chris Lane - I Don't Know About You.mid">MIDI</a></td>
         </tr>
 
-<tr data-playlist="Classic's">
+<tr data-playlist="Classics">
             <td>Cyndi Lauper - The Goonies 'R' Good Enough</td>
             <td><a class="file-link" href="">Sheet</a></td>
             <td><a class="file-link" href="midi/Cyndi Lauper - The Goonies R Good Enough.mid">MIDI</a></td>
