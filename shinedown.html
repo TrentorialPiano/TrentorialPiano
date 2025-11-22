@@ -105,6 +105,27 @@ header .logo {
             });
         }
 
+function filterAlbum(album) {
+        let rows = document.querySelectorAll("#songTable tr");
+
+        rows.forEach(row => {
+            let rowAlbum = row.getAttribute("data-album");
+
+            // show all rows
+            if (album === "all") {
+                row.style.display = "";
+                return;
+            }
+
+            // show only rows that match
+            if (rowAlbum === album) {
+                row.style.display = "";
+            } else {
+                row.style.display = "none";
+            }
+        });
+    }
+
     </script>
 </head>
 
@@ -684,20 +705,6 @@ header .logo {
 
         rows.forEach(row => table.appendChild(row));
     };
-
-function filterAlbum(album) {
-    const rows = document.querySelectorAll('#songTable tbody tr');
-
-    rows.forEach(row => {
-        const rowAlbum = row.getAttribute('data-album');
-
-        if (album === 'all' || rowAlbum === album) {
-            row.style.display = "";
-        } else {
-            row.style.display = "none";
-        }
-    });
-}
 </script>
 
 </body>
