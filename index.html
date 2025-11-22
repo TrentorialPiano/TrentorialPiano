@@ -92,6 +92,27 @@ header .logo {
             color: #0099ff;
             font-weight: bold;
         }
+
+.album-filters button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    margin-right: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* COLORS YOU REQUESTED */
+.btn-cls { background: yellow; color: white; }        /* Yellow */
+.btn-cty { background: brown; color: white; }        /* Brown */
+.btn-gam { background: purple; color: white; }        /* Purple */
+.btn-pop { background: pink; color: black; }         /* Pink */
+.btn-rck { background: black; color: white; }          /* Black */
+.btn-wwe { background: red; color: white; }        /* Red */
+
+/* Optional: All Songs */
+.btn-all { background: #ccc; color: black; }
+
     </style>
 
     <script>
@@ -104,6 +125,41 @@ header .logo {
                 row.style.display = text.includes(input) ? "" : "none";
             });
         }
+
+function filterPlaylist(playlist) {
+    let rows = document.querySelectorAll("#songTable tr");
+
+    rows.forEach(row => {
+        let albums = row.getAttribute("data-playlist");
+        if (!albums) {
+            row.style.display = "none";
+            return;
+        }
+
+        let playlistList = playlist.toLowerCase().split(",").map(a => a.trim());
+
+        if (playlist === "all" || playlistList.includes(playlist.toLowerCase())) {
+            row.style.display = "";
+        } else {
+            row.style.display = "none";
+        }
+    });
+
+updateStriping();
+}
+
+function updateStriping() {
+    const visibleRows = document.querySelectorAll("#songTable tr:not([style*='display: none'])");
+
+    visibleRows.forEach((row, index) => {
+        if (index % 2 === 0) {
+            row.style.backgroundColor = "white";
+        } else {
+            row.style.backgroundColor = "#eafff3"; // or whatever green you want
+        }
+    });
+}
+
     </script>
 </head>
 
@@ -121,6 +177,17 @@ header .logo {
 </nav>
 
 <input id="search" onkeyup="searchSongs()" placeholder="Search for a song..." />
+
+<div class="playlist-filters">
+    <button class="btn-all" onclick="filterPlaylist('all')">All Songs</button>
+    <button class="btn-cls" onclick="filterPlaylist('Classic's')">Classic's</button>
+    <button class="btn-cty" onclick="filterPlaylist('Country')">Country</button>
+    <button class="btn-gam" onclick="filterPlaylist('Gaming')">Gaming</button>
+    <button class="btn-pop" onclick="filterPlaylist('Pop')">Pop</button>
+    <button class="btn-rck" onclick="filterPlaylist('Rock')">Rock</button>
+    <button class="btn-wwe" onclick="filterPlaylist('WWE')">WWE</button>
+
+</div>
 
 <table>
     <thead>
