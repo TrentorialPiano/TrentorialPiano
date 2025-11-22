@@ -122,6 +122,20 @@ header .logo {
 
 <input id="search" onkeyup="searchSongs()" placeholder="Search for a song..." />
 
+function filterAlbum(album) {
+    const rows = document.querySelectorAll('#songTable tbody tr');
+
+    rows.forEach(row => {
+        const rowAlbum = row.getAttribute('data-album');
+
+        if (album === 'all' || rowAlbum === album) {
+            row.style.display = "";
+        } else {
+            row.style.display = "none";
+        }
+    });
+}
+
 <div id="albumFilters" style="margin-bottom: 20px;">
   <button onclick="filterAlbum('all')">All Songs</button>
   <button onclick="filterAlbum('Leave A Whisper')">Leave A Whisper</button>
