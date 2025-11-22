@@ -92,6 +92,29 @@ header .logo {
             color: #0099ff;
             font-weight: bold;
         }
+
+.album-filters button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    margin-right: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* COLORS YOU REQUESTED */
+.btn-lw { background: #007bff; color: white; }        /* Blue */
+.btn-ut { background: orange; color: black; }        /* Orange */
+.btn-som { background: white; color: black; }        /* White */
+.btn-am { background: black; color: white; }         /* Black */
+.btn-tts { background: red; color: white; }          /* Red */
+.btn-aa { background: yellow; color: black; }        /* Yellow */
+.btn-pz { background: purple; color: white; }        /* Purple */
+.btn-sd8 { background: green; color: white; }        /* Green */
+
+/* Optional: All Songs */
+.btn-all { background: #ccc; color: black; }
+
     </style>
 
     <script>
@@ -144,17 +167,18 @@ function filterAlbum(album) {
 
 <input id="search" onkeyup="searchSongs()" placeholder="Search for a song..." />
 
-<div id="albumFilters" style="margin-bottom: 20px;">
-  <button onclick="filterAlbum('all')">All Songs</button>
-  <button onclick="filterAlbum('Leave a Whisper')">Leave a Whisper</button>
-  <button onclick="filterAlbum('Us & Them')">Us & Them</button>
-  <button onclick="filterAlbum('The Sound of Madness')">The Sound of Madness</button>
-  <button onclick="filterAlbum('Amaryllis')">Amaryllis</button>
-  <button onclick="filterAlbum('Threat to Survival')">Threat to Survival</button>
-  <button onclick="filterAlbum('ATTENTION ATTENTION')">ATTENTION ATTENTION</button>
-  <button onclick="filterAlbum('Planet Zero')">Planet Zero</button>
-  <button onclick="filterAlbum('SD8')">SD8</button>
+<div class="album-filters">
+    <button class="btn-all" onclick="filterAlbum('all')">All Songs</button>
+    <button class="btn-lw" onclick="filterAlbum('Leave a Whisper')">Leave a Whisper</button>
+    <button class="btn-ut" onclick="filterAlbum('Us & Them')">Us & Them</button>
+    <button class="btn-som" onclick="filterAlbum('The Sound of Madness')">The Sound of Madness</button>
+    <button class="btn-am" onclick="filterAlbum('Amaryllis')">Amaryllis</button>
+    <button class="btn-tts" onclick="filterAlbum('Threat to Survival')">Threat to Survival</button>
+    <button class="btn-aa" onclick="filterAlbum('ATTENTION ATTENTION')">ATTENTION ATTENTION</button>
+    <button class="btn-pz" onclick="filterAlbum('Planet Zero')">Planet Zero</button>
+    <button class="btn-sd8" onclick="filterAlbum('SD8')">SD8</button>
 </div>
+
 
 <table>
     <thead>
