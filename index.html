@@ -130,8 +130,8 @@ function filterPlaylist(playlist) {
     let rows = document.querySelectorAll("#songTable tr");
 
     rows.forEach(row => {
-        let albums = row.getAttribute("data-playlist");
-        if (!albums) {
+        let playlists = row.getAttribute("data-playlist");
+        if (!playlists) {
             row.style.display = "none";
             return;
         }
