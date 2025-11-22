@@ -128,22 +128,31 @@ header .logo {
 
 function filterPlaylist(playlist) {
     let rows = document.querySelectorAll("#songTable tr");
+    let target = playlist.toLowerCase();
 
     rows.forEach(row => {
         let playlists = row.getAttribute("data-playlist");
+
+        // Hide rows with no playlist tag
         if (!playlists) {
             row.style.display = "none";
             return;
         }
 
-        let playlistList = playlist.toLowerCase().split(",").map(a => a.trim());
+        // Split the ROW’S playlist list properly
+        let playlistList = playlists.toLowerCase().split(",").map(a => a.trim());
 
-        if (playlist === "all" || playlistList.includes(playlist.toLowerCase())) {
+        // Show all or only matching rows
+        if (target === "all" || playlistList.includes(target)) {
             row.style.display = "";
         } else {
             row.style.display = "none";
         }
     });
+
+    updateStriping();
+}
+
 
 updateStriping();
 }
@@ -180,7 +189,7 @@ function updateStriping() {
 
 <div class="playlist-filters">
     <button class="btn-all" onclick="filterPlaylist('all')">All Songs</button>
-    <button class="btn-cls" onclick="filterPlaylist(`Classic's`)">Classic's</button>
+    <button class="btn-cls" onclick="filterPlaylist('Classic\'s')">Classic's</button>
     <button class="btn-cty" onclick="filterPlaylist('Country')">Country</button>
     <button class="btn-gam" onclick="filterPlaylist('Gaming')">Gaming</button>
     <button class="btn-pop" onclick="filterPlaylist('Pop')">Pop</button>
