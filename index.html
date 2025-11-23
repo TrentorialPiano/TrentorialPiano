@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Trentorial Piano - Sheet Music & MIDI</title>
 
+<h3 id="fileCount" style="margin-left:20px; font-weight:bold;"></h3>
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -884,6 +886,29 @@ function updateStriping() {
 
         rows.forEach(row => table.appendChild(row));
     };
+</script>
+
+<script>
+function countFiles() {
+    const rows = document.querySelectorAll("#songTable tr");
+    let total = 0;
+
+    rows.forEach(row => {
+        const sheet = row.querySelector("td:nth-child(2) a");
+        const midi = row.querySelector("td:nth-child(3) a");
+
+        // Count if there's a sheet link
+        if (sheet && sheet.textContent.trim() === "Sheet") total++;
+
+        // Count if there's a MIDI link
+        if (midi && midi.textContent.trim() === "MIDI") total++;
+    });
+
+    document.getElementById("fileCount").textContent =
+        total + " Available Sheet/MIDI Files";
+}
+
+document.addEventListener("DOMContentLoaded", countFiles);
 </script>
 
 </body>
