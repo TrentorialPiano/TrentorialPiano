@@ -109,6 +109,7 @@ header .logo {
 .btn-pop { background: pink; color: black; }         /* Pink */
 .btn-rck { background: black; color: white; }          /* Black */
 .btn-wwe { background: red; color: white; }        /* Red */
+.btn-axw { background: green; color: white; }      /* Green */
 
 /* Optional: All Songs */
 .btn-all { background: #ccc; color: black; }
@@ -188,6 +189,7 @@ function updateStriping() {
     <button class="btn-pop" onclick="filterPlaylist('Pop')">Pop</button>
     <button class="btn-rck" onclick="filterPlaylist('Rock')">Rock</button>
     <button class="btn-wwe" onclick="filterPlaylist('WWE')">WWE</button>
+    <button class="btn-axw" onclick="filterPlaylist('Alex Warren')">Alex Warren</button>
 
 </div>
 
@@ -215,7 +217,7 @@ function updateStriping() {
             <td><a class="file-link" href="midi/Jason Aldean - You Make It Easy.mid">MIDI</a></td>
         </tr>
 
-        <tr data-playlist="Pop, WWE">
+        <tr data-playlist="Alex Warren, WWE">
             <td>Alex Warren - You Can't Stop This</td>
             <td><a class="file-link" href="">Sheet</a></td>
             <td><a class="file-link" href="midi/Alex Warren - You Can't Stop This.mid">MIDI</a></td>
@@ -944,6 +946,12 @@ function updateStriping() {
             <td>Black Stone Cherry - Won't Let Go</td>
             <td><a class="file-link" href="sheet/Black Stone Cherry - Wont Let Go.pdf">Sheet</a></td>
             <td><a class="file-link" href="midi/Black Stone Cherry - Wont Let Go.mid">MIDI</a></td>
+        </tr>
+
+<tr data-playlist="Alex Warren">
+            <td>Alex Warren - Eternity</td>
+            <td><a class="file-link" href="">Sheet</a></td>
+            <td><a class="file-link" href="midi/Alex Warren - Eternity.mid">MIDI</a></td>
         </tr>
     </tbody>
 </table>
