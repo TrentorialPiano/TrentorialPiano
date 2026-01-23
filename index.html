@@ -103,13 +103,13 @@ header .logo {
 }
 
 /* COLORS YOU REQUESTED */
+.btn-axw { background: green; color: white; }      /* Green */
 .btn-cls { background: yellow; color: black; }        /* Yellow */
 .btn-cty { background: brown; color: white; }        /* Brown */
 .btn-gam { background: purple; color: white; }        /* Purple */
 .btn-pop { background: pink; color: black; }         /* Pink */
 .btn-rck { background: black; color: white; }          /* Black */
 .btn-wwe { background: red; color: white; }        /* Red */
-.btn-axw { background: green; color: white; }      /* Green */
 
 /* Optional: All Songs */
 .btn-all { background: #ccc; color: black; }
@@ -182,6 +182,7 @@ function updateStriping() {
 <input id="search" onkeyup="searchSongs()" placeholder="Search for a song..." />
 
 <div class="playlist-filters">
+    <button class="btn-axw" onclick="filterPlaylist('Alex Warren')">Alex Warren</button>
     <button class="btn-all" onclick="filterPlaylist('all')">All Songs</button>
     <button class="btn-cls" onclick="filterPlaylist('Classics')">Classics</button>
     <button class="btn-cty" onclick="filterPlaylist('Country')">Country</button>
@@ -189,7 +190,6 @@ function updateStriping() {
     <button class="btn-pop" onclick="filterPlaylist('Pop')">Pop</button>
     <button class="btn-rck" onclick="filterPlaylist('Rock')">Rock</button>
     <button class="btn-wwe" onclick="filterPlaylist('WWE')">WWE</button>
-    <button class="btn-axw" onclick="filterPlaylist('Alex Warren')">Alex Warren</button>
 
 </div>
 
